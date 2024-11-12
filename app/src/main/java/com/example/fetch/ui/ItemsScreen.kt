@@ -145,7 +145,7 @@ fun ItemCell(
                     .padding(vertical = 8.dp),
             ) {
                 Text(
-                    itemView.header,
+                    stringResource(R.string.list, itemView.listId),
                     style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(horizontal = HORIZONTAL_PADDING)
@@ -179,11 +179,11 @@ fun ItemCell(
 @Composable
 fun PreviewItemsScreen() {
     val items = listOf(
-        ItemView.GroupHeader("List id 100"),
+        ItemView.GroupHeader(100),
         ItemView.DataItem(Item(10, 100, "Item 10")),
         ItemView.DataItem(Item(20, 100, "Item 20")),
         ItemView.DataItem(Item(20, 100, "Item 30")),
-        ItemView.GroupHeader("List id 200"),
+        ItemView.GroupHeader(200),
         ItemView.DataItem(Item(70, 200, "Item 70")),
         ItemView.DataItem(Item(80, 200, "Item 80")),
     )

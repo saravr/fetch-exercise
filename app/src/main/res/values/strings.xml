@@ -3,4 +3,6 @@
     <string name="items">Items</string>
     <string name="id">ID %1$s</string>
     <string name="listid">ListId %1$s</string>
+    <string name="list">List %1$s</string>
+    <string name="loading">Loading ...</string>
 </resources>

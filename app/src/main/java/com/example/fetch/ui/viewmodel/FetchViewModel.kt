@@ -24,7 +24,7 @@ class FetchViewModel @Inject constructor(
             fetchUseCase.groupedItems.collectLatest {
                 val output = mutableListOf<ItemView>()
                 it.forEach { (listId, items) ->
-                    output.add(ItemView.GroupHeader("List $listId"))
+                    output.add(ItemView.GroupHeader(listId))
                     output.addAll(items.map { item -> ItemView.DataItem(item) })
                 }
                 _itemList.emit(Resource.Success(output))

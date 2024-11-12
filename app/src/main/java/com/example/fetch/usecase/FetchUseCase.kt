@@ -2,7 +2,9 @@ package com.example.fetch.usecase
 
 import com.example.fetch.model.Item
 import com.example.fetch.repository.FetchRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import java.util.SortedMap
 import javax.inject.Inject
@@ -25,7 +27,7 @@ class FetchUseCaseImpl @Inject constructor(
             .sortedBy { it.name }
             .groupBy { it.listId }
             .toSortedMap()
-    }
+    }.flowOn(Dispatchers.Default)
 
     override suspend fun getGroupedItems() {
         fetchRepository.getItems()

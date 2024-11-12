@@ -1,5 +1,6 @@
 package com.example.fetch.di
 
+import com.example.fetch.AppConfig.FETCH_BASE_URL
 import com.example.fetch.service.FetchService
 import dagger.Module
 import dagger.Provides
@@ -17,7 +18,7 @@ object NetworkModule {
     private val json = Json {
         prettyPrint = true
         ignoreUnknownKeys = true
-        encodeDefaults = true // to include default value in encoding
+        encodeDefaults = true
         coerceInputValues = true
     }
 
@@ -30,7 +31,7 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://fetch-hiring.s3.amazonaws.com")
+            .baseUrl(FETCH_BASE_URL)
             .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .client(okHttpClient)
             .build()
